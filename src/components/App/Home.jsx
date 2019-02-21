@@ -25,7 +25,7 @@ class Home extends Component {
   handleSearch = () => {
     const keyWords = this.keyWords
     const typeMaterial = this.state.selectedOption.value
-    console.log(keyWords, typeMaterial)
+    this.props.dispatch(actions.search(keyWords, typeMaterial))
   }
 
   render() {
