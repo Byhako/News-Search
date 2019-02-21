@@ -44,7 +44,7 @@ class Home extends Component {
               onChange={this.handleKeywords} />
           </ContentKey>
           <ContentSelect>
-            <Label htmlFor="select">Keywords</Label>
+            <Label htmlFor="select">Type of Material</Label>
             <Select
               id="select"
               value={selectedOption}

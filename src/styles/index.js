@@ -19,6 +19,9 @@ export const Logo = styled.img `
 
 
 export const Form = styled.form `
+  @media (max-width: 800px) {
+    flex-direction: column;
+  };
   border: 2px solid black;
   background-color: lightgray;
   display: flex;
@@ -29,6 +32,9 @@ export const Form = styled.form `
 
 
 export const Content = styled.div `
+  @media (max-width: 800px) {
+    width: 100%
+  };
   display: flex;
   flex-direction: column;
   padding: 17px;
@@ -36,10 +42,16 @@ export const Content = styled.div `
 `
 
 export const ContentKey = styled(Content) `
+  @media (max-width: 800px) {
+    width: 100%
+  };
   width: 50%;  
 `
 
 export const Keywords = styled.input `
+  @media (max-width: 800px) {
+    width: 100%
+  };
   height: 38px;
   border: 1px solid hsl(0,0%,80%);
   border-radius: 4px;
@@ -56,6 +68,10 @@ export const Label = styled.label `
 
 
 export const Button = styled.button `
+  @media (max-width: 800px) {
+    width: 40%;
+    margin: auto;
+  };
   margin-top: 29px;
   border-radius: 4px;
   height: 38px;
