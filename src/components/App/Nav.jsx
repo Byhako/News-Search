@@ -16,7 +16,6 @@ class NavSearch extends Component {
     super(props)
     this.state = {
       selectedOption: null,
-      count: 0
     }
   }
 
@@ -28,8 +27,7 @@ class NavSearch extends Component {
       $('#loader').css({display: 'block'})
       const keyWords = this.keyWords
       const typeMaterial = this.state.selectedOption.value
-      this.props.dispatch(actions.search(keyWords, typeMaterial, this.state.count))
-      this.setState({count: this.state.count++})
+      this.props.dispatch(actions.search(keyWords, typeMaterial))
     }
   }
 

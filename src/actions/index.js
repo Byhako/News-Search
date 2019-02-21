@@ -25,7 +25,7 @@ function search (keyWords, typeMaterial, page=0) {
       })
       .then(data => {
         const response = data.response.docs
-
+        const number = data.response.meta.hits
         const articles = response.map(article => {
           let image = null
           if (article.multimedia.length !== 0) {
@@ -50,7 +50,7 @@ function search (keyWords, typeMaterial, page=0) {
             keyWords
           }
         })
-        console.log(articles)
+        dispatch({ type: 'SET_NUMBER_ARTICLES', number })
         dispatch({ type: 'SET_ARTICLES', articles })
       })
       .catch(err => console.log('%cError in response search:', "color: #CC0000;", err))

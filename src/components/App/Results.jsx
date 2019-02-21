@@ -7,7 +7,7 @@ import Nav from './Nav'
 import Cards from './Cards'
 
 import {Container, Content, ContentKey, ContentSelect, Label, Logo,
-  Keywords, Button, Form, ContainerLoader} from '../../styles'
+  Keywords, Button, Form, ContainerLoader, Footer} from '../../styles'
 
 
 class Results extends Component {
@@ -15,6 +15,7 @@ class Results extends Component {
     super(props)
     this.state = {
       selectedOption: null,
+      count: 1
     }
   }
 
@@ -25,6 +26,15 @@ class Results extends Component {
         {this.props.articles.map((article, index) => (
           <Cards key={index} article={article}/>
         ))}
+        <div style={{height: '100px'}}/>
+        <Footer>
+          <p style={{margin: '0'}}>Displaying&nbsp;
+            {this.state.count*10-9}&nbsp;to&nbsp;
+            {this.state.count*10} results of {this.props.number} found.
+          </p>
+          <Button footer>Get More News</Button>
+        </Footer>
+
       </Fragment>
     )
   }
@@ -32,7 +42,8 @@ class Results extends Component {
 
 function mapStateToProps (state, props) {
   return {
-    articles: state.articles
+    articles: state.articles,
+    number: state.number
   }
 }
 

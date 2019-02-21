@@ -3,6 +3,7 @@ export default Reducer
 function Reducer (state, action) {
   const reducer = ({
     SET_ARTICLES,
+    SET_NUMBER_ARTICLES
   })[action.type]
 
   return (reducer && reducer(state, action)) || state
@@ -11,3 +12,8 @@ function Reducer (state, action) {
 function SET_ARTICLES (state, action) {
   return { ...state, articles: action.articles }
 }
+
+function SET_NUMBER_ARTICLES (state, action) {
+  return { ...state, number: action.number }
+}
+

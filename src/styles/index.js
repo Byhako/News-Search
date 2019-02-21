@@ -76,6 +76,7 @@ export const ContentSearch = styled(Content) `
     height: 82px;
     padding-top: 0;
     justify-content: flex-end;
+    margin-bottom: 17px;
   };
   flex-direction: row;
   width: 50%;
@@ -100,7 +101,7 @@ export const Button = styled.button `
     width: 40%;
     margin: 0 auto;
   };
-  margin-top: 29px;
+  margin: ${props => props.footer ? '5px 0 20px 0' : '29px 0 0 0'};
   border-radius: 4px;
   height: 38px;
   background-color: whitesmoke;
@@ -108,4 +109,14 @@ export const Button = styled.button `
 
 export const ContainerLoader = styled.div `
   display: none;
+`
+
+export const Footer = styled.div `
+  position: fixed;
+  bottom: 0;
+  padding: 5px 0 0 30px;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid gray;
+  height: 93px;
 `

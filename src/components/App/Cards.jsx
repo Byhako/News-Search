@@ -28,7 +28,7 @@ class Cards extends Component {
           <Published><b>Published:&nbsp;</b>{data.published}</Published>
           {data.keyWords.map((word, i) => (
             <Fragment>
-              <KeyWords key={i}>{word},</KeyWords>&nbsp;&nbsp;&nbsp;  
+              <KeyWords key={i}>{word},</KeyWords>&nbsp;&nbsp;  
             </Fragment>
           ))}
         </Content>

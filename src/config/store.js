@@ -8,7 +8,8 @@ const logger = createLogger()
 const middleware = [ReduxThunk] //, logger]
 
 export const initialState = {
-  articles: []
+  articles: [],
+  number: 0
 }
 
 const store = createStore(
