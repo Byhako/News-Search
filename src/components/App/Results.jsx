@@ -19,6 +19,18 @@ class Results extends Component {
     }
   }
 
+  MoreNews = () => {
+    let count = this.state.count
+    this.props.dispatch(actions.search(
+      this.props.keyWords,
+      this.props.typeMaterial,
+      count
+      )
+    )
+    count++
+    this.setState({count})
+  }
+
   render() {
     return (
       <Fragment>
@@ -32,7 +44,7 @@ class Results extends Component {
             {this.state.count*10-9}&nbsp;to&nbsp;
             {this.state.count*10} results of {this.props.number} found.
           </p>
-          <Button footer>Get More News</Button>
+          <Button footer onClick={this.MoreNews}>Get More News</Button>
         </Footer>
 
       </Fragment>
@@ -43,7 +55,9 @@ class Results extends Component {
 function mapStateToProps (state, props) {
   return {
     articles: state.articles,
-    number: state.number
+    number: state.number,
+    keyWords: state.keyWords,
+    typeMaterial: state.typeMaterial
   }
 }
 

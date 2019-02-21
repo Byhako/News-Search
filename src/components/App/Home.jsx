@@ -25,11 +25,14 @@ class Home extends Component {
   handleChange = (selectedOption) => this.setState({ selectedOption })
 
   handleSearch = () => {
-    if (this.keyWords && this.state.selectedOption) {
+    const keyWords = this.keyWords
+    const selectedOption = this.state.selectedOption
+    if (keyWords && selectedOption) {
       $('#loader').css({display: 'block'})
-      const keyWords = this.keyWords
       const typeMaterial = this.state.selectedOption.value
       this.props.dispatch(actions.search(keyWords, typeMaterial))
+      this.props.dispatch({type: 'SET_KEYWORDS', keyWords})
+      this.props.dispatch({type: 'SET_TYPE_MATERIAL', typeMaterial})
     }
   }
 

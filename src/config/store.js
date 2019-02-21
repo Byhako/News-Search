@@ -9,7 +9,9 @@ const middleware = [ReduxThunk] //, logger]
 
 export const initialState = {
   articles: [],
-  number: 0
+  number: 0,
+  keyWords: '',
+  typeMaterial: ''
 }
 
 const store = createStore(
