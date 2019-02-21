@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.7",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-redux": "^6.0.1",
@@ -33,7 +32,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "bootstrap": "^4.3.1",
     "redux-devtools-extension": "^2.13.8"
   }
 }

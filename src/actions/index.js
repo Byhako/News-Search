@@ -26,6 +26,7 @@ function search (keyWords, typeMaterial, page=0, more=false) {
       .then(data => {
         const response = data.response.docs
         const number = data.response.meta.hits
+        console.log(number)
         const articles = response.map(article => {
           let image = null
           if (article.multimedia.length !== 0) {

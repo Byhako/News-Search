@@ -70,9 +70,13 @@ class Home extends Component {
             </Content>
           </Form>
 
-          <ContainerLoader id='loader'>
-            <div className={styles.loader}>Loading...</div>
-          </ContainerLoader>
+          {this.props.number === 0 ? (
+            <p>No hay resuldatos.</p>
+          ) : (
+            <ContainerLoader id='loader'>
+              <div className={styles.loader}>Loading...</div>
+            </ContainerLoader>
+          )}
         </Container>
       )
     }
@@ -81,7 +85,8 @@ class Home extends Component {
 
 function mapStateToProps (state, props) {
   return {
-    articles: state.articles
+    articles: state.articles,
+    number: state.number
   }
 }
 

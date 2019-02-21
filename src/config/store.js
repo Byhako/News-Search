@@ -5,11 +5,11 @@ import Reducer from '../reducers/Reducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 const logger = createLogger()
-const middleware = [ReduxThunk]//, logger]
+const middleware = [ReduxThunk, logger]
 
 export const initialState = {
   articles: [],
-  number: 0,
+  number: '',
   keyWords: '',
   typeMaterial: ''
 }

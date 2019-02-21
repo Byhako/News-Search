@@ -67,6 +67,7 @@ export const ContentSelect = styled(Content) `
   @media (max-width: 800px) {
     padding: ${props => props.nav ? '0' : '17px'};
   };
+  justify-content: flex-end;
   width: ${props => props.nav ? '60%' : '30%'};
 `
 
@@ -104,6 +105,7 @@ export const Button = styled.button `
   margin: ${props => props.footer ? '5px 200px 0 0' : '29px 0 0 0'};
   border-radius: 4px;
   height: 38px;
+  width: ${props => props.footer ? '150px' : 'auto'};
   background-color: whitesmoke;
 `
 
