@@ -1,13 +1,10 @@
 import React , { Component, Fragment } from 'react'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import actions from '../../actions'
-import $ from 'jquery'
 import Nav from './Nav'
 import Cards from './Cards'
 
-import {Container, Content, ContentKey, ContentSelect, Label, Logo,
-  Keywords, Button, Form, ContainerLoader, Footer} from '../../styles'
+import {Button, Footer} from '../../styles'
 
 
 class Results extends Component {
@@ -19,16 +16,21 @@ class Results extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.articles !== prevProps.articles) {
+      console.log(this.props.articles)
+    }
+  }
+
   MoreNews = () => {
     let count = this.state.count
     this.props.dispatch(actions.search(
-      this.props.keyWords,
-      this.props.typeMaterial,
-      count
-      )
+      this.props.keyWords, this.props.typeMaterial,
+      count, true )
     )
     count++
-    this.setState({count})
+
+    // this.setState({count})
   }
 
   render() {
@@ -41,7 +43,6 @@ class Results extends Component {
         <div style={{height: '100px'}}/>
         <Footer>
           <p style={{margin: '0'}}>Displaying&nbsp;
-            {this.state.count*10-9}&nbsp;to&nbsp;
             {this.state.count*10} results of {this.props.number} found.
           </p>
           <Button footer onClick={this.MoreNews}>Get More News</Button>
@@ -53,6 +54,7 @@ class Results extends Component {
 }
 
 function mapStateToProps (state, props) {
+  console.log('map', state.articles)
   return {
     articles: state.articles,
     number: state.number,

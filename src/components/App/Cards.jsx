@@ -1,9 +1,6 @@
 import React , { Component, Fragment } from 'react'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import actions from '../../actions'
-import $ from 'jquery'
-import {} from '../../styles'
 
 import { Container, Photo, Content, Title, Snippet, 
   Source, Published, KeyWords} from '../../styles/cards'
@@ -14,6 +11,11 @@ class Cards extends Component {
     this.state = {
       selectedOption: null,
     }
+  }
+
+  searchKeyWord = (e) => {
+    const keyWord = e.target.dataset.word
+    this.props.dispatch(actions.search(keyWord, this.props.typeMaterial))
   }
 
   render() {
@@ -28,7 +30,11 @@ class Cards extends Component {
           <Published><b>Published:&nbsp;</b>{data.published}</Published>
           {data.keyWords.map((word, i) => (
             <Fragment>
-              <KeyWords key={i}>{word},</KeyWords>&nbsp;&nbsp;  
+              <KeyWords 
+                key={i}
+                data-word={word}
+                onClick={this.searchKeyWord}
+              >{word},</KeyWords>&nbsp;&nbsp;  
             </Fragment>
           ))}
         </Content>
@@ -39,6 +45,7 @@ class Cards extends Component {
 
 function mapStateToProps (state, props) {
   return {
+    typeMaterial: state.typeMaterial
   }
 }
 

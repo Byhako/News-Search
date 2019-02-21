@@ -8,7 +8,7 @@ import { options } from './options'
 import $ from 'jquery'
 
 import {Nav, Content, ContentKey, ContentSelect, Label, Logo,
-  Keywords, Button, Form, ContainerLoader, ContentSearch} from '../../styles'
+  Keywords, Button, ContentSearch} from '../../styles'
 
 
 class NavSearch extends Component {

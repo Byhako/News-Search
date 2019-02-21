@@ -4,7 +4,7 @@ const staticUrl = 'https://static01.nyt.com/'
 const baseUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=​'
 const apiKey = 'X58UrRVXDS0hbEc7QmE1L0c1dsILI5A8'
 
-function search (keyWords, typeMaterial, page=0) {
+function search (keyWords, typeMaterial, page=0, more=false) {
   console.log("%cSEARCH", "color: #3465A4; font-weight: bold;" )
   return function (dispatch) {
     const words = keyWords.replace(' ','+')
@@ -50,8 +50,12 @@ function search (keyWords, typeMaterial, page=0) {
             keyWords
           }
         })
-        dispatch({ type: 'SET_NUMBER_ARTICLES', number })
-        dispatch({ type: 'SET_ARTICLES', articles })
+        if (more) {
+          dispatch({ type: 'SET_MORE_ARTICLES', articles })
+        } else {
+          dispatch({ type: 'SET_NUMBER_ARTICLES', number })
+          dispatch({ type: 'SET_ARTICLES', articles })
+        }
       })
       .catch(err => console.log('%cError in response search:', "color: #CC0000;", err))
   }
