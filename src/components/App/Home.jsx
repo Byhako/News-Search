@@ -39,7 +39,7 @@ class Home extends Component {
   render() {
     const { selectedOption } = this.state
 
-    if (this.props.len !== 0) {
+    if (this.props.articles.length !== 0) {
       return (
         <Redirect to='/results' />
       )
@@ -80,9 +80,8 @@ class Home extends Component {
 }
 
 function mapStateToProps (state, props) {
-  const len = state.articles.length
   return {
-    len
+    articles: state.articles
   }
 }
 

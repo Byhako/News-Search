@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import actions from '../../actions'
 
 import { Container, Photo, Content, Title, Snippet, 
-  Source, Published, KeyWords} from '../../styles/cards'
+  Source, Published, KeyWords, ContainerPhoto} from '../../styles/cards'
 
 class Cards extends Component {
   constructor(props) {
@@ -22,14 +22,16 @@ class Cards extends Component {
     const data = this.props.article
     return (
       <Container>
-        <Photo src={data.image} alt="image"/>
+        <ContainerPhoto>
+          <Photo src={data.image} alt="image"/>
+        </ContainerPhoto>
         <Content>
           <Title href={data.web}>{data.title}</Title>
           <Snippet>{data.snippet}</Snippet>
           <Source><b>Source:&nbsp;</b>{data.source}</Source>
           <Published><b>Published:&nbsp;</b>{data.published}</Published>
           {data.keyWords.map((word, i) => (
-            <Fragment>
+            <Fragment key={i}>
               <KeyWords 
                 key={i}
                 data-word={word}

@@ -98,7 +98,7 @@ export const Keywords = styled.input `
 
 export const Button = styled.button `
   @media (max-width: 800px) {
-    width: 40%;
+    width: ${props => props.footer ? '150px' : '40%'};
     margin: 0 auto;
   };
   margin: ${props => props.footer ? '5px 0 20px 0' : '29px 0 0 0'};
@@ -119,4 +119,5 @@ export const Footer = styled.div `
   background-color: white;
   border-top: 1px solid gray;
   height: 93px;
+  display: flex;
 `

@@ -15,7 +15,12 @@ export const Photo = styled.img `
   width: 200px;
   height: 182px;
 `
-
+export const ContainerPhoto = styled.div `
+  @media (max-width: 800px) {
+    display: none;
+  };
+  min-width: 200px;
+`
 
 export const Content = styled.div `
   @media (max-width: 800px) {
