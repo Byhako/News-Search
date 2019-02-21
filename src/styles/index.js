@@ -10,16 +10,16 @@ export const Container = styled.div `
   flex-direction: column;
 `
 
-
 export const Logo = styled.img `
   @media (max-width: 800px) {
     margin-top: 0;
+    display: ${props => props.nav ? 'none' : 'block'};
   };
   object-fit: contain;
-  height: 35vh;
-  margin-top: 10vh;
+  height: ${props => props.nav ? '95px' : '35vh'};
+  margin-top: ${props => props.nav ? '0' : '10vh'};
+  margin-left: ${props => props.nav ? '10px' : '0'};
 `
-
 
 export const Form = styled.form `
   @media (max-width: 800px) {
@@ -33,22 +33,56 @@ export const Form = styled.form `
   margin: 10px auto;
 `
 
+export const Nav = styled(Form) `
+  @media (max-width: 800px) {
+    height: 182px;
+  };
+  width: 100%;
+  margin: 0;
+  height: 100px;
+`
 
 export const Content = styled.div `
   @media (max-width: 800px) {
     width: 100%
+    padding-top: ${props => props.nav ? '0 17px' : '17px'};
+    justify-content: flex-end;
   };
   display: flex;
   flex-direction: column;
   padding: 17px;
-  width: 20%;
+  width: ${props => props.nav ? '36%' : '20%'} ;
 `
 
 export const ContentKey = styled(Content) `
   @media (max-width: 800px) {
-    width: 100%
+    width: 100%;
+    height: 80px;
+    padding-bottom: 0;
   };
-  width: 50%;  
+  width: ${props => props.nav ? '45%' : '50%'}  
+`
+
+export const ContentSelect = styled(Content) `
+  @media (max-width: 800px) {
+    padding: ${props => props.nav ? '0' : '17px'};
+  };
+  width: ${props => props.nav ? '60%' : '30%'};
+`
+
+export const ContentSearch = styled(Content) `
+  @media (max-width: 800px) {
+    width: 100%;
+    height: 82px;
+    padding-top: 0;
+    justify-content: flex-end;
+  };
+  flex-direction: row;
+  width: 50%;
+`
+
+export const Label = styled.label `
+  margin-bottom: 5px;
 `
 
 export const Keywords = styled.input `
@@ -58,25 +92,13 @@ export const Keywords = styled.input `
   height: 38px;
   border: 1px solid hsl(0,0%,80%);
   border-radius: 4px;
-  padding: 5px;
-`
-
-export const ContentSelect = styled(Content) `
-  width: 30%;
-`
-
-export const Label = styled.label `
-  margin-bottom: 5px;
-`
-
-export const ContainerLoader = styled.div `
-  display: none;
+  padding: 5px 0 0 0;
 `
 
 export const Button = styled.button `
   @media (max-width: 800px) {
     width: 40%;
-    margin: auto;
+    margin: 0 auto;
   };
   margin-top: 29px;
   border-radius: 4px;
@@ -84,5 +106,6 @@ export const Button = styled.button `
   background-color: whitesmoke;
 `
 
-
-
+export const ContainerLoader = styled.div `
+  display: none;
+`
