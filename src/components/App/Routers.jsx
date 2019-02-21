@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 
 import Home from './Home'
+import Results from './Results'
 
 
 class AppRouter extends Component {
@@ -13,6 +14,7 @@ class AppRouter extends Component {
         <Fragment>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route exact path='/results' component={Results} />
           </Switch>
         </Fragment>
       </BrowserRouter>

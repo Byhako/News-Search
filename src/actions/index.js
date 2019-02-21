@@ -4,12 +4,12 @@ const staticUrl = 'https://static01.nyt.com/'
 const baseUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=​'
 const apiKey = 'X58UrRVXDS0hbEc7QmE1L0c1dsILI5A8'
 
-function search (keyWords, typeMaterial) {
+function search (keyWords, typeMaterial, page=0) {
   console.log("%cSEARCH", "color: #3465A4; font-weight: bold;" )
   return function (dispatch) {
     const words = keyWords.replace(' ','+')
     
-    const url = `${baseUrl}${words}&fq=type_of_material:("${typeMaterial}")&page=0&api-key=${apiKey}`
+    const url = `${baseUrl}${words}&fq=type_of_material:("${typeMaterial}")&page=${page}&api-key=${apiKey}`
     const miInit = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },

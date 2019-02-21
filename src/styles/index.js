@@ -12,6 +12,9 @@ export const Container = styled.div `
 
 
 export const Logo = styled.img `
+  @media (max-width: 800px) {
+    margin-top: 0;
+  };
   object-fit: contain;
   height: 35vh;
   margin-top: 10vh;
@@ -66,6 +69,9 @@ export const Label = styled.label `
   margin-bottom: 5px;
 `
 
+export const ContainerLoader = styled.div `
+  display: none;
+`
 
 export const Button = styled.button `
   @media (max-width: 800px) {
