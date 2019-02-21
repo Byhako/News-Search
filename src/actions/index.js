@@ -31,13 +31,23 @@ function search (keyWords, typeMaterial, page=0) {
           if (article.multimedia.length !== 0) {
             image = staticUrl + article.multimedia[0].url
           }
+          let keyWords = []
+          const keywords = article.keywords
+          let ban = 0
+          while (ban<3) {
+            if (keywords[ban]) {
+              keyWords.push(keywords[ban].value)
+            } else { break }
+            ban++
+          }
           return {
             web: article.web_url,
             title: article.headline.main,
             snippet: article.snippet,
             source: article.source,
             published: article.pub_date,
-            image
+            image,
+            keyWords
           }
         })
         console.log(articles)

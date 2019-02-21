@@ -1,5 +1,5 @@
 import React , { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import actions from '../../actions'
 import Select from 'react-select'
@@ -33,12 +33,18 @@ class NavSearch extends Component {
     }
   }
 
+  cleanResults = () => {
+    this.props.dispatch({ type: 'SET_ARTICLES', articles: [] })
+  }
+
   render() {
     const { selectedOption } = this.state
 
     return (
       <Nav>
-        <Logo nav src={logo} alt="logo"/>
+        <Link to='/' onClick={this.cleanResults}>
+          <Logo nav src={logo} alt="logo"/>
+        </Link>
 
         <ContentKey nav>
           <Label htmlFor="keyWords">Keywords</Label>

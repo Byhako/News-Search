@@ -45,7 +45,7 @@ export const Nav = styled(Form) `
 export const Content = styled.div `
   @media (max-width: 800px) {
     width: 100%
-    padding-top: ${props => props.nav ? '0 17px' : '17px'};
+    padding: ${props => props.nav ? '0 17px' : '17px'};
     justify-content: flex-end;
   };
   display: flex;
@@ -92,7 +92,7 @@ export const Keywords = styled.input `
   height: 38px;
   border: 1px solid hsl(0,0%,80%);
   border-radius: 4px;
-  padding: 5px 0 0 0;
+  padding: 0 0 0 8px;
 `
 
 export const Button = styled.button `

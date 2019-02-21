@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import actions from '../../actions'
 import $ from 'jquery'
 import Nav from './Nav'
+import Cards from './Cards'
+
 import {Container, Content, ContentKey, ContentSelect, Label, Logo,
   Keywords, Button, Form, ContainerLoader} from '../../styles'
 
@@ -20,9 +22,9 @@ class Results extends Component {
     return (
       <Fragment>
         <Nav />
-        <p>
-          {this.props.articles[0].title}
-        </p>
+        {this.props.articles.map((article, index) => (
+          <Cards key={index} article={article}/>
+        ))}
       </Fragment>
     )
   }
