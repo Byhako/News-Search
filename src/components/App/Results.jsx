@@ -49,12 +49,10 @@ class Results extends Component {
           ))}
           <div style={{height: '100px'}}/>
           <Footer>
-            <div style={{marginRight: '150px'}}>
-              <p style={{margin: '0'}}>Displaying&nbsp;
+              <p style={{margin: '0', width: '100%'}}>Displaying&nbsp;
                 {this.props.articles.length} results of {this.props.number} found.
               </p>
               <Button footer onClick={this.MoreNews}>Get More News</Button>
-            </div>
             <ContainerLoader id='loader2'>
               <div className={styles.loader}>Loading...</div>
             </ContainerLoader>
