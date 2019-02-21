@@ -8,6 +8,9 @@ export const Container = styled.div `
 `
 
 export const Photo = styled.img `
+  @media (max-width: 800px) {
+    display: none;
+  };
   object-fit: contain;
   width: 200px;
   height: 182px;
@@ -15,9 +18,12 @@ export const Photo = styled.img `
 
 
 export const Content = styled.div `
+  @media (max-width: 800px) {
+    height: 135px;
+  };
   display: inline-flex;
   flex-direction: column;
-  padding: 0 10px;
+  padding: 0 0 0 20px;
   height: 182px;
   justify-content: center;
 `
@@ -32,6 +38,9 @@ export const Title = styled.a `
 
 
 export const Snippet = styled.p `
+  @media (max-width: 800px) {
+    display: none;
+  };
   font-size: 14px;
   margin: 0;
 `
